@@ -12,7 +12,7 @@ import javax.swing.table.JTableHeader;
 class VentanaLab extends JFrame{
 	
 	JMenuBar menuBar;
-	JMenu masters,booking,testPerform,transaction,labReport,setings,windows,hep;
+	JMenu masters,booking,testPerform,transaction,labReport,setings,windows,help;
 	JMenuItem menuItem;
 	JToolBar barraH;
 	
@@ -29,8 +29,20 @@ class VentanaLab extends JFrame{
 		setTitle("INTERNALFRAMES");
 		setVisible(true);
 		
+		JOptionPane.showMessageDialog(rootPane,"El FRAME esta en Maestros => Registro");
+		
+		
+		
+		
 		menuBar = new JMenuBar();
 			masters = new JMenu("Maestros");
+			booking = new JMenu("Reserva");
+			testPerform = new JMenu("Hacer Test");
+			transaction = new JMenu("Transaccion");
+			labReport = new JMenu("Reporte");
+			setings = new JMenu("Ajustes");
+			windows = new JMenu("Ventana");
+			help = new JMenu("Ayuda");
 				menuItem = new JMenuItem("Registro");
 				menuItem.setIcon(new ImageIcon());
 			masters.add(menuItem);
@@ -47,6 +59,13 @@ class VentanaLab extends JFrame{
 				});
 		
 	menuBar.add(masters);
+	menuBar.add(booking);
+	menuBar.add(testPerform);
+	menuBar.add(transaction);
+	menuBar.add(labReport);
+	menuBar.add(setings);
+	menuBar.add(windows);
+	menuBar.add(help);
 	setJMenuBar(menuBar);
 	
 	JDesktopPane dp = new JDesktopPane();
@@ -211,12 +230,13 @@ class VentanaLab extends JFrame{
 	
 	JPanel panel2 = new JPanel();
 	panel2.setBorder(bordejpanel);
-	panel2.setBounds(525, 230, 423, 280);
+	panel2.setBounds(525, 230, 423, 250);
 	panel2.setBackground(Color.WHITE);
+	panel2.setLayout(null);
 	
 	
 	
-	String cabezaT []={"Test ID", "Test Name","Velocidad","Disc %","Importe de descuento","IVA%","Importe del IVA"};
+	String cabezaT []={"Test ID", "Test Name","Velocidad","Disc %","Descuento $","IVA%","IVA $"};
 	String cuerpoT [][] = new String[1][7];
 	
 	DefaultTableModel modelo = new DefaultTableModel();
@@ -225,15 +245,110 @@ class VentanaLab extends JFrame{
 	JTable tabla=new JTable();
 	tabla=new JTable(modelo);
 	JTableHeader header = tabla.getTableHeader();
-	header.setBounds(0,230,525,100);
+	header.setBounds(0,230,525,20);
+	tabla.setBounds(0,250,500,20);
 	registro.add(header);
-	tabla.setBounds(0,330,500,20);
 	registro.add(tabla);
+	
+	JLabel totalTest = new JLabel("Total Test");
+	JLabel testAmount = new JLabel("Importe del test");
+	JLabel consension = new JLabel("Consension");
+	JLabel homecolector = new JLabel("Colección");
+	JLabel taxAmount = new JLabel("Importe del IVA");
+	JLabel netAmount = new JLabel("Importe Neto");
+	JLabel balance = new JLabel("Balance");
+	
+	JTextField totalT = new JTextField(5);
+	totalT.setBackground(Color.BLUE);
+	JTextField importeT = new JTextField(5);
+	importeT.setBackground(Color.BLUE);
+	JTextField consensionT = new JTextField(5);
+	consensionT.setBackground(Color.BLUE);
+	JTextField coleccionT = new JTextField(5);
+	coleccionT.setBackground(Color.BLUE);
+	JTextField taxT = new JTextField(5);
+	taxT.setBackground(Color.BLUE);
+	JTextField netT = new JTextField(5);
+	netT.setBackground(Color.BLUE);
+	JTextField balanceT = new JTextField(5);
+	balanceT.setBackground(Color.BLUE);
+	
+	totalTest.setBounds(20, 10, 100, 20);
+	totalT.setBounds(120, 10, 110, 20);
+	testAmount.setBounds(20,40,100,20);
+	importeT.setBounds(120, 40, 110, 20);
+	consension.setBounds(20,70,100,20);
+	consensionT.setBounds(120, 70, 110, 20);
+	homecolector.setBounds(20,100,100,20);
+	coleccionT.setBounds(120, 100, 110, 20);
+	taxAmount.setBounds(20,130,100,20);
+	taxT.setBounds(120, 130, 110, 20);
+	netAmount.setBounds(20,160,100,20);
+	netT.setBounds(120, 160, 110, 20);
+	balance.setBounds(20,190,100,20);
+	balanceT.setBounds(120, 190, 110, 20);
+	
+	
+	panel2.add(totalTest);
+	panel2.add(totalT);
+	panel2.add(testAmount);
+	panel2.add(importeT);
+	panel2.add(consension);
+	panel2.add(consensionT);
+	panel2.add(homecolector);
+	panel2.add(coleccionT);
+	panel2.add(taxAmount);
+	panel2.add(taxT);
+	panel2.add(netAmount);
+	panel2.add(netT);
+	panel2.add(balance);
+	panel2.add(balanceT);
+	
+	JPanel panel3 = new JPanel();
+	panel3.setBorder(bordejpanel);
+	panel3.setBounds(1, 480, 873, 125);
+	panel3.setBackground(Color.WHITE);
+	panel3.setLayout(null);
+	
+	JLabel homec = new JLabel("Coleccion");
+	JLabel paid = new JLabel("Pago");
+	JLabel typePaid = new JLabel("Tipo de pago");
+	JLabel receibNo = new JLabel("No. Recibo");
+	
+	String[] t = {"Efectivo"};
+	JComboBox type = new JComboBox(t);
+	JTextField homecT = new JTextField(3);
+	JTextField paidT = new JTextField(3);
+	JTextField receibT = new JTextField(5);
+	JTextField blue = new JTextField();
+	blue.setBackground(Color.BLUE);
+	
+	homec.setBounds(5, 5, 100, 20);
+	homecT.setBounds(70, 5, 70, 20);
+	paid.setBounds(170, 5, 100, 20);
+	paidT.setBounds(210, 5, 70, 20);
+	typePaid.setBounds(310, 5, 100, 20);
+	type.setBounds(390, 7, 100, 20);
+	receibNo.setBounds(520, 5, 100, 20);
+	receibT.setBounds(600, 5, 100, 20);
+	
+	blue.setBounds(1, 60, 870, 65);
+	
+	panel3.add(homec);
+	panel3.add(homecT);
+	panel3.add(paid);
+	panel3.add(paidT);
+	panel3.add(typePaid);
+	panel3.add(type);
+	panel3.add(receibNo);
+	panel3.add(receibT);
+	panel3.add(blue);
 	
 	
 	
 	registro.add(panel1);
 	registro.add(panel2);
+	registro.add(panel3);
 	
 	dp.add(registro);
 	dp.setBounds(0, 0, 900, 700);

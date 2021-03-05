@@ -10,9 +10,12 @@ class VentanaLab extends JFrame{
 	JMenuBar menuBar;
 	JMenu masters,booking,testPerform,transaction,labReport,setings,windows,hep;
 	JMenuItem menuItem;
-	JToolBar barraTareas;
+	JToolBar barraH;
 	
 	JInternalFrame registro;
+	
+	
+	
 	
 	public VentanaLab() {
 		getContentPane().setLayout(null);
@@ -55,10 +58,43 @@ class VentanaLab extends JFrame{
 	
 	
 	
+	JButton plus = new JButton("Add", new ImageIcon("Iconos/page-blank.png"));
+	JButton edit = new JButton("Edit", new ImageIcon("Iconos/editar.png"));
+	JButton back = new JButton("Back", new ImageIcon("Iconos/back.png"));
+	JButton next = new JButton("Next", new ImageIcon("Iconos/next.png"));
+	JButton list = new JButton("List", new ImageIcon("Iconos/list.png"));
+	JButton save = new JButton("Save", new ImageIcon("Iconos/save.png"));
+	JButton print = new JButton("Print", new ImageIcon("Iconos/print.png"));
+	JButton test = new JButton("Test", new ImageIcon("Iconos/test.png"));
+	JButton cancel = new JButton("Cancel", new ImageIcon("Iconos/cancel.png"));
+	JButton settings = new JButton("Settings", new ImageIcon("Iconos/settings.png"));
+	JButton delete = new JButton("Delete", new ImageIcon("Iconos/delete.png"));
+	JButton exit = new JButton("Exit", new ImageIcon("Iconos/exit.png"));
 	
-	JLabel x = new JLabel("xd");
-	x.setBounds(10,10,20,10);
-	registro.add(x);
+	
+	barraH = new JToolBar(JToolBar.HORIZONTAL);	
+	barraH.setBounds(0, 0, 950, 30);
+	barraH.add(plus);
+	barraH.add(edit);
+	barraH.add(back);
+	barraH.add(next);
+	barraH.add(list);
+	barraH.add(save);
+	barraH.add(print);
+	barraH.add(test);
+	barraH.add(cancel);
+	barraH.add(settings);
+	barraH.add(delete);
+	barraH.add(exit);
+	
+	
+	registro.add(barraH);
+	
+	
+	
+	
+	
+	
 	
 	dp.add(registro);
 	dp.setBounds(0, 0, 900, 700);

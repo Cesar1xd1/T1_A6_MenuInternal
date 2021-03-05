@@ -6,6 +6,8 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 
 class VentanaLab extends JFrame{
 	
@@ -92,8 +94,6 @@ class VentanaLab extends JFrame{
 	
 	registro.add(barraH);
 	
-	String cabezaT []={"Test ID", "Test Name","Disc %"};
-	String cuerpoT [][] = new String[1][2];
 	
 	
 	JPanel panel1 = new JPanel();
@@ -136,7 +136,7 @@ class VentanaLab extends JFrame{
 	panel1.add(zero);
 	
 	
-	registro.add(panel1);
+	
 	
 	
 	JLabel name = new JLabel("Nombre     ");
@@ -209,7 +209,31 @@ class VentanaLab extends JFrame{
 	panel1.add(email);
 	panel1.add(emailT);
 	
+	JPanel panel2 = new JPanel();
+	panel2.setBorder(bordejpanel);
+	panel2.setBounds(525, 230, 423, 280);
+	panel2.setBackground(Color.WHITE);
 	
+	
+	
+	String cabezaT []={"Test ID", "Test Name","Velocidad","Disc %","Importe de descuento","IVA%","Importe del IVA"};
+	String cuerpoT [][] = new String[1][7];
+	
+	DefaultTableModel modelo = new DefaultTableModel();
+	modelo=new DefaultTableModel(cuerpoT,cabezaT);
+   
+	JTable tabla=new JTable();
+	tabla=new JTable(modelo);
+	JTableHeader header = tabla.getTableHeader();
+	header.setBounds(0,230,525,100);
+	registro.add(header);
+	tabla.setBounds(0,330,500,20);
+	registro.add(tabla);
+	
+	
+	
+	registro.add(panel1);
+	registro.add(panel2);
 	
 	dp.add(registro);
 	dp.setBounds(0, 0, 900, 700);
